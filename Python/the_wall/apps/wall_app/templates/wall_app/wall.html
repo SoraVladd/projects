@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'wall_app/css/style.css' %}">
+    <title>The Wall. The Feed. The Happening.</title>
+</head>
+<body>  
+    <div class="header">
+        <h1>Welcome to the home page!</h1>
+        <p>How are you {{user.first_name}}?</p>
+        <a href="/logout/">Log Out</a>
+    </div>
+    <div class="wall">
+        <h2>Post a message</h2>
+        <form action="postMessage/" method="post">
+            {% csrf_token %}
+            <input type="textarea" name="wall_message" class="input">
+            <input type="submit" value="Post a message" class="button" id="post_message">
+        </form>
+            {%for message in all_the_messages%}
+            <p class="message"> {{message.user.first_name}} {{message.user.last_name}} {{message.created_at}} <br> {{message.message}}</p>
+            {%if user.id == message.user.id%}
+            <a href="/wall/destroy/{{message.id}}">Delete Message</a>
+            {%endif%}
+            {%for comment in message.comments.all%}
+            <p class="comment">{{comment.user.first_name}} {{comment.user.lasst_name}} {{comment.created_at}} <br> {{comment.comment}} </p>
+            {%endfor%}
+            <form action="postComment/" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="m_id" value="{{message.id}}">
+                <input type="textarea" name="wall_comment" class="input">
+                <input type="submit" value="Post a comment" class="button post_comment">
+            </form>
+            {%endfor%}
+        </div>
+</body>
+</html>

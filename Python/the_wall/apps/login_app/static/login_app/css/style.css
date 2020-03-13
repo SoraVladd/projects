@@ -1,0 +1,45 @@
+*{
+    padding: 0px;
+    margin:0px;
+    outline:0px;
+    border:0px;
+}
+
+.register_box {
+    margin-left: 200px;
+    margin-top: 100px;
+    padding: 30px;
+    display: inline-block;
+    background-color: blue;
+    border-radius: 25px;
+}
+
+.buttons{
+    margin-top: 4px;
+    padding: 3px;
+}
+
+.login_box{
+    padding: 30px;
+    margin-left: 100px;
+    background-color: blueviolet;
+    display: inline-block;
+    border-radius: 25px;
+    vertical-align: top;
+    margin-top: 100px;
+}
+
+input{
+    border: solid black 1px;
+    margin-top: 4px;
+}
+
+body{
+    background-image: url(../img/brick.jpg);
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+p,h1{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    
+}

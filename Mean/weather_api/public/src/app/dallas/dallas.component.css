@@ -1,0 +1,13 @@
+   .humble{
+        display: block;
+    }
+    .considerate{
+        display: inline-block;
+    }
+    .align{
+        text-align: center;
+    }
+    .image{
+        margin-left: 350px;
+        width: 300px;
+    }
